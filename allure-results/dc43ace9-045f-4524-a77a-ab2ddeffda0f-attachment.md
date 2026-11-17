@@ -1,0 +1,977 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Code1.spec.js >> HI apple
+- Location: Practice\Code1.spec.js:4:1
+
+# Error details
+
+```
+Error: locator.click: Error: strict mode violation: locator('.globalnav-image-regular') resolved to 32 elements:
+    1) <span aria-hidden="true" class="globalnav-image-regular globalnav-link-image">…</span> aka getByLabel('Apple', { exact: true })
+    2) <span aria-hidden="true" class="globalnav-image-regular globalnav-link-image">…</span> aka getByLabel('Store', { exact: true })
+    3) <span aria-hidden="true" class="globalnav-image-regular globalnav-submenu-button-icon">…</span> aka getByRole('button', { name: 'Store menu' })
+    4) <span aria-hidden="true" class="globalnav-image-regular globalnav-link-image">…</span> aka getByLabel('Mac', { exact: true })
+    5) <span aria-hidden="true" class="globalnav-image-regular globalnav-submenu-button-icon">…</span> aka getByRole('button', { name: 'Mac menu' })
+    6) <span aria-hidden="true" class="globalnav-image-regular globalnav-link-image">…</span> aka getByLabel('iPad', { exact: true })
+    7) <span aria-hidden="true" class="globalnav-image-regular globalnav-submenu-button-icon">…</span> aka getByRole('button', { name: 'iPad menu' })
+    8) <span aria-hidden="true" class="globalnav-image-regular globalnav-link-image">…</span> aka getByLabel('iPhone', { exact: true })
+    9) <span aria-hidden="true" class="globalnav-image-regular globalnav-submenu-button-icon">…</span> aka getByRole('button', { name: 'iPhone menu' })
+    10) <span aria-hidden="true" class="globalnav-image-regular globalnav-link-image">…</span> aka getByLabel('Watch', { exact: true })
+    ...
+
+Call log:
+  - waiting for locator('.globalnav-image-regular')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - complementary "Choose country or region" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: Choose another country or region to see content specific to your location and shop online.
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - button " India " [ref=e7]:
+            - generic [ref=e8]:
+              - generic [ref=e9]: 
+              - generic [ref=e10]: India
+            - text: 
+          - text: 
+        - button "Continue" [ref=e11] [cursor=pointer]
+        - button "Close country or region selector" [ref=e12] [cursor=pointer]
+  - navigation "Global" [ref=e17]:
+    - list [ref=e19]:
+      - listitem [ref=e20]:
+        - link "Apple" [ref=e21] [cursor=pointer]:
+          - /url: /
+      - listitem [ref=e22]:
+        - generic [ref=e24]:
+          - list [ref=e26]:
+            - listitem [ref=e27]:
+              - link "Store" [ref=e28] [cursor=pointer]:
+                - /url: /us/shop/goto/store
+            - listitem:
+              - button "Store menu"
+          - list [ref=e31]:
+            - listitem [ref=e32]:
+              - link "Mac" [ref=e33] [cursor=pointer]:
+                - /url: /mac/
+            - listitem:
+              - button "Mac menu"
+          - list [ref=e36]:
+            - listitem [ref=e37]:
+              - link "iPad" [ref=e38] [cursor=pointer]:
+                - /url: /ipad/
+            - listitem:
+              - button "iPad menu"
+          - list [ref=e41]:
+            - listitem [ref=e42]:
+              - link "iPhone" [ref=e43] [cursor=pointer]:
+                - /url: /iphone/
+            - listitem:
+              - button "iPhone menu"
+          - list [ref=e46]:
+            - listitem [ref=e47]:
+              - link "Watch" [ref=e48] [cursor=pointer]:
+                - /url: /watch/
+            - listitem:
+              - button "Watch menu"
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "Vision" [ref=e53] [cursor=pointer]:
+                - /url: /apple-vision-pro/
+            - listitem:
+              - button "Vision menu"
+          - list [ref=e56]:
+            - listitem [ref=e57]:
+              - link "AirPods" [ref=e58] [cursor=pointer]:
+                - /url: /airpods/
+            - listitem:
+              - button "AirPods menu"
+          - list [ref=e61]:
+            - listitem [ref=e62]:
+              - link "Home" [ref=e63] [cursor=pointer]:
+                - /url: /home/
+            - listitem:
+              - button "Home menu"
+          - list [ref=e66]:
+            - listitem [ref=e67]:
+              - link "Entertainment" [ref=e68] [cursor=pointer]:
+                - /url: /entertainment/
+            - listitem:
+              - button "Entertainment menu"
+          - list [ref=e71]:
+            - listitem [ref=e72]:
+              - link "Accessories" [ref=e73] [cursor=pointer]:
+                - /url: /us/shop/goto/buy_accessories
+            - listitem:
+              - button "Accessories menu"
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "Support" [ref=e78] [cursor=pointer]:
+                - /url: https://support.apple.com/?cid=gn-ols-home-hp-tab
+            - listitem:
+              - button "Support menu"
+      - listitem [ref=e80]:
+        - button "Search apple.com" [ref=e81] [cursor=pointer]
+      - listitem [ref=e82]:
+        - button "Shopping Bag" [ref=e84] [cursor=pointer]
+  - navigation "Local":
+    - generic:
+      - generic:
+        - generic:
+          - link "Apple HomeView":
+            - /url: /apple-homeview/
+        - generic:
+          - generic:
+            - list:
+              - listitem:
+                - link "Overview" [disabled]
+              - listitem:
+                - link "Tech Specs":
+                  - /url: /apple-homeview/specs/
+          - generic:
+            - generic:
+              - link "Pre-order Apple HomeView":
+                - /url: /us/shop/goto/buy_home/apple_homeview
+                - text: Pre-order
+                - generic: Apple HomeView
+  - main [ref=e86]:
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e92]:
+          - heading "Welcome, Apple HomeView" [level=1] [ref=e93]
+          - generic [ref=e94]: Welcome,
+        - generic [ref=e95]:
+          - paragraph
+          - paragraph [ref=e97]:
+            - text: Available starting 11.13
+            - generic [ref=e98]: November 13
+          - paragraph
+      - generic [ref=e101]:
+        - img "Animation of Apple HomeView devices in different colors, showing a variety of apps and functionality"
+      - generic [ref=e104]:
+        - list [ref=e105]:
+          - listitem [ref=e106]:
+            - link "Pre-order, Apple HomeView" [ref=e108] [cursor=pointer]:
+              - /url: /us/shop/goto/buy_home/apple_homeview
+              - text: Pre-order
+        - list [ref=e109]:
+          - listitem [ref=e110]:
+            - generic [ref=e111]: Apple HomeView $299
+          - listitem [ref=e112]:
+            - generic [ref=e113]: Apple HomeView (Wall Mounted) $299
+    - generic [ref=e114]:
+      - generic [ref=e116]:
+        - heading "Get the highlights." [level=2] [ref=e117]
+        - list [ref=e119]:
+          - listitem [ref=e120]:
+            - button "Watch the film, Apple HomeView" [ref=e121] [cursor=pointer]:
+              - generic [ref=e122]:
+                - text: Watch the
+                - generic [ref=e123]: Apple HomeView
+                - text: film
+      - generic [ref=e125]:
+        - generic [ref=e126]:
+          - button "Play highlights gallery" [ref=e129] [cursor=pointer]
+          - tablist "Highlights gallery" [ref=e137]:
+            - tab "Apple HomeView" [selected]
+            - tab "Siri AI" [ref=e138] [cursor=pointer]
+            - tab "Multiuser" [ref=e140] [cursor=pointer]
+            - tab "Audio and visuals" [ref=e142] [cursor=pointer]
+            - tab "Ways to connect" [ref=e144] [cursor=pointer]
+            - tab "Smart home dashboard" [ref=e146] [cursor=pointer]
+            - tab "Apple Privacy" [ref=e148] [cursor=pointer]
+        - list [ref=e152] [cursor=pointer]:
+          - tabpanel "Apple HomeView" [ref=e153]:
+            - generic [ref=e154]:
+              - paragraph [ref=e155]: Apple HomeView keeps the whole home connected, entertained, and in the know. All in one place. Private for all.
+              - img "Apple HomeView devices in different colors, showing a variety of apps and functionality" [ref=e157]:
+                - img "Apple HomeView devices in different colors, showing a variety of apps and functionality" [ref=e159]
+          - tabpanel [ref=e160]:
+            - generic [ref=e161]:
+              - generic:
+                - paragraph [ref=e162]:
+                  - text: Siri AI. A personal assistant that helps you find what you need and get more done.
+                  - superscript [ref=e163]:
+                    - link [ref=e164]:
+                      - /url: "#footnote-2"
+                      - text: "1"
+                - paragraph [ref=e165]: Available in English to start. Usage limits may apply.
+          - tabpanel [ref=e170]
+          - tabpanel [ref=e171]
+          - tabpanel [ref=e172]
+          - tabpanel [ref=e173]
+          - tabpanel [ref=e174]
+    - generic [ref=e175]:
+      - generic [ref=e177]:
+        - heading "Take a closer look." [level=2] [ref=e178]
+        - generic:
+          - list
+      - region "product viewer" [ref=e179]:
+        - generic [ref=e182]:
+          - figure [ref=e184]
+          - figure [ref=e185]
+        - generic:
+          - img "Apple HomeView device, side exterior, starlight color (pale gold), hand interacting with the screen, displaying various Apple app icons and widgets"
+          - list [ref=e188]:
+            - listitem [ref=e189]
+            - listitem [ref=e190]
+            - listitem [ref=e191]
+            - listitem [ref=e192]
+            - listitem [ref=e193]
+    - generic [ref=e196]:
+      - heading "Delights up the house." [level=2] [ref=e199]
+      - generic [ref=e203]:
+        - img "Animation of Apple HomeView devices rotating clockwise, displaying a variety of capabilities, starting with rose pink color, showing a FaceTime call between two participants, silver color, displaying Apple Music app, space gray color, displaying an image of a person blowing a bubble, and starlight color (pale gold), displaying a butternut squash soup recipe" [ref=e205]
+        - generic [ref=e207]:
+          - button "Play the carousel of HomeView devices animation"
+      - paragraph [ref=e211]: Apple HomeView is designed to bring more joy and convenience to everyone in your household. Siri AI comes built in for personalized AI assistance that’s truly useful in your everyday life. And with a vibrant display and powerful acoustics, your music, videos, and calls look and sound amazing. Meet the new heart of your home.
+    - generic [ref=e213]:
+      - generic [ref=e215]:
+        - heading "A perfect face for any space." [level=2] [ref=e216]
+        - paragraph [ref=e219]: With a collection of customizable faces, Apple HomeView brings beauty to any room. Relive your favorite memories with the stunning Photos face. Choose playful faces like Snoopy or informative options like Calendar, Weather, and more. Even enjoy interactive artwork with the Flow face, which reacts to your movements with mesmerizing colors and light.
+      - img "Apple HomeView screens showing a variety of clock faces, wallpapers, and widgets, including calendar, weather, Snoopy characters, Home controls, and lifestyle photos" [ref=e228]
+      - generic [ref=e234]:
+        - generic [ref=e238]:
+          - heading "Digital picture frame." [level=3] [ref=e239]
+          - paragraph [ref=e240]: Whether a single image or a rotating gallery, photos from your collections or shared albums are beautifully framed.
+        - generic [ref=e244]:
+          - heading "Dynamic faces." [level=3] [ref=e245]
+          - paragraph [ref=e246]: Select faces change throughout the day. They wake with you in the morning, wind down with you at night, and more.
+    - generic [ref=e247]:
+      - generic [ref=e249]:
+        - heading [level=2] [ref=e250]:
+          - generic [ref=e251]: Meet Siri AI. Your AI assistant.More personal. More powerful.
+        - generic [ref=e252]:
+          - paragraph [ref=e253]:
+            - text: Siri AI, powered by Apple Intelligence, comes built into Apple HomeView to help you find what you need and get more done while protecting your privacy.
+            - superscript [ref=e254]:
+              - link "Footnote 1" [ref=e255] [cursor=pointer]:
+                - /url: "#footnote-2"
+                - text: "1"
+            - text: Siri AI adapts to each person and surfaces what matters most to them — all they have to do is ask.
+          - paragraph [ref=e256]: Available in English to start.Usage limits may apply.
+      - generic [ref=e258]:
+        - tablist "Siri AI gallery" [ref=e263]:
+          - tab "Personal Context" [selected] [ref=e264]
+          - tab "World Knowledge" [ref=e266] [cursor=pointer]
+          - tab "Seamless Experience" [ref=e268] [cursor=pointer]
+        - generic [ref=e271]:
+          - tabpanel "Personal Context" [ref=e272]:
+            - img "Apple HomeView, silver color, screen shows Siri AI listing upcoming birthday celebrations from the Calendar app" [ref=e274]
+            - generic [ref=e277]:
+              - heading "Relevant to you." [level=3] [ref=e278]
+              - paragraph [ref=e279]:
+                - text: Pull up a party invitation from your calendar, find RSVPs buried in your messages, or play the perfect soundtrack to match the vibe. Siri AI works with your paired iPhone or iPad to find relevant content just for you.
+                - superscript [ref=e280]:
+                  - link "Footnote 1" [ref=e281] [cursor=pointer]:
+                    - /url: "#footnote-2"
+                    - text: "1"
+          - tabpanel [ref=e282]
+          - tabpanel [ref=e283]
+    - generic [ref=e289]:
+      - img "Animation of Apple privacy logo with a lock icon, black color, showing lock mechanism turning from open to locked position" [ref=e294]
+      - generic [ref=e297]:
+        - heading "Great powers come with great privacy." [level=2] [ref=e298]
+        - paragraph [ref=e301]: Apple Intelligence is designed to protect your privacy at every step. It draws on your personal information without collecting it, and Private Cloud Compute — running on Apple silicon — handles requests without ever storing your data or making it accessible to anyone, including Apple. And because Apple HomeView is made to be shared, everyone’s personal information stays separate and secure.
+    - generic [ref=e303]:
+      - generic [ref=e305]:
+        - heading "Heaps of help at home." [level=2] [ref=e306]
+        - paragraph [ref=e309]: Apple HomeView does the heavy lifting when you’re busy around the house. Check your calendar, set reminders, and stay on top of your to-do list. Pull up a quick crafting tutorial. Ask Siri AI to recommend a new coffee shop. Start and stop multiple timers for your chores, and keep an eye on them with Live Activities when you’re using other apps.
+      - 'img "Apple HomeView, two devices: silver color, displaying butternut squash soup recipe, rose pink color, showing timer displaying 10 minutes and 56 seconds" [ref=e310]'
+      - generic [ref=e314]:
+        - generic [ref=e318]:
+          - heading "Cooking." [level=3] [ref=e319]
+          - paragraph [ref=e320]: When you find a recipe in Safari, just tap the Start Cooking button to view a streamlined format that’s easy to follow.
+        - generic [ref=e324]:
+          - heading "Handoff." [level=3] [ref=e325]
+          - paragraph [ref=e326]: Start a song, podcast, call, video, or recipe on iPhone, and continue on HomeView without missing a beat.
+    - generic [ref=e327]:
+      - generic [ref=e332]:
+        - heading "Made to be seen, heard, and enjoyed." [level=2] [ref=e333]
+        - paragraph [ref=e336]: Apple HomeView keeps you engaged and entertained with music, podcasts, audiobooks, TV shows, and more. Have an impromptu sing-along. Immerse yourself in a good story. Keep an eye on the game while you do the dishes. With HomeView, there’s never a dull moment.
+      - generic [ref=e338]:
+        - img "Animation of Apple HomeView, two devices, rotating counter-clockwise from side exterior to front exterior, then zooming in on exterior speaker grille, from left to right, rose pink color, displaying Music app album artwork, starlight color (pale gold), showing artwork from the Apple TV series Pluribus" [ref=e339]
+        - generic [ref=e344]:
+          - generic [ref=e348]:
+            - heading "Apple apps." [level=3] [ref=e349]
+            - paragraph [ref=e350]:
+              - text: A selection of Apple apps are available on HomeView. Enjoy Music with lyrics and artwork,
+              - superscript [ref=e351]:
+                - link "Footnote 7" [ref=e352] [cursor=pointer]:
+                  - /url: "#footnote-8"
+                  - text: "7"
+              - text: audio stories on News
+              - superscript [ref=e353]:
+                - link "Footnote 8" [ref=e354] [cursor=pointer]:
+                  - /url: "#footnote-9"
+                  - text: "8"
+              - text: and Audiobooks, and so much more.
+          - generic [ref=e358]:
+            - heading "Additional apps." [level=3] [ref=e359]
+            - paragraph [ref=e360]:
+              - text: HomeView supports compatible third-party audio and video apps from your iPhone for a familiar experience across devices.
+              - superscript [ref=e361]:
+                - link "Footnote 9" [ref=e362] [cursor=pointer]:
+                  - /url: "#footnote-10"
+                  - text: "9"
+      - generic [ref=e367]:
+        - heading "Astounding sound." [level=3] [ref=e368]
+        - paragraph [ref=e369]:
+          - text: The mighty yet compact speakers pack a serious punch. Two custom full-range drivers in the display keep everything sounding crisp and clean while delivering room-filling Spatial Audio.
+          - superscript [ref=e370]:
+            - link "Footnote 4" [ref=e371] [cursor=pointer]:
+              - /url: "#footnote-5"
+              - text: "4"
+          - text: Computational audio adjusts consistency and balance in real time to deliver incredible sound every time, from anywhere. And a down-firing woofer and two force-cancelling passive radiators are built into the base — for deep, rich bass.
+      - generic [ref=e373]:
+        - generic [ref=e377]:
+          - heading "Spatial Audio." [level=3] [ref=e378]
+          - paragraph [ref=e379]:
+            - text: Fills the room with rich, textured sound for a high-fidelity listening experience.
+            - superscript [ref=e380]:
+              - link "Footnote 4" [ref=e381] [cursor=pointer]:
+                - /url: "#footnote-5"
+                - text: "4"
+        - generic [ref=e385]:
+          - heading "Multiroom audio." [level=3] [ref=e386]
+          - paragraph [ref=e387]:
+            - text: Use AirPlay to connect with HomePod, Apple TV 4K, and compatible speakers — and just like that, you have a fully connected home sound system.
+            - superscript [ref=e388]:
+              - link "Footnote 10" [ref=e389] [cursor=pointer]:
+                - /url: "#footnote-11"
+                - text: "10"
+    - generic [ref=e391]:
+      - generic [ref=e392]:
+        - generic [ref=e393]:
+          - heading "Friends and family are just a screen away." [level=2] [ref=e394]
+          - paragraph [ref=e397]: Whether you’re calling a friend abroad or calling the kids for dinner, Apple HomeView brings everyone together. Enjoy clear and hands-free FaceTime calls. Use Intercom on HomeView and HomePod speakers to communicate with people throughout the house or on their personal devices like iPhone, iPad, or Apple Watch. Send messages and make phone calls using just your voice. And use Find My to help you locate your devices, personal items that have an AirTag, and anybody who chooses to share their location with you.
+        - generic [ref=e398]:
+          - generic [ref=e402]:
+            - heading "Center Stage" [level=3] [ref=e403]
+            - paragraph [ref=e404]: keeps everyone in the frame during FaceTime calls, even as they move around or if more people join in.
+          - generic [ref=e408]:
+            - heading "The four-microphone array" [level=3] [ref=e409]
+            - paragraph [ref=e410]: picks up voices while reducing background noise, for clear calls and Siri requests.
+      - img "Apple HomeView, screen shows a FaceTime video call with a woman and child in a kitchen, and an older woman waving in the inset window" [ref=e413]
+    - generic [ref=e415]:
+      - generic [ref=e416]:
+        - heading "Everything connected and under one roof." [level=2] [ref=e417]
+        - paragraph [ref=e420]: Apple HomeView is a central hub for your smart home accessories, making it easy to keep things running smoothly. And with the new Apple Home Collection, it’s never been simpler to set up and control a connected home.
+      - img "Apple HomeView, wall-mounted model on a wall, silver color, displaying time, temperature, front door camera feed, and controls for thermostat, bedroom fan, door lock, and lights" [ref=e423]
+      - generic [ref=e427]:
+        - heading "Integrated with the Home app." [level=3] [ref=e428]
+        - paragraph [ref=e431]:
+          - text: Built into HomeView and synced with your other Apple devices, the Home app keeps you on top of your smart home. See who’s at the door, monitor your entryway, access multiple video feeds, adjust the lighting and temperature, and control scenes and automations to fit the routines and rhythms of your household.
+          - superscript [ref=e432]:
+            - link "Footnote 11" [ref=e433] [cursor=pointer]:
+              - /url: "#footnote-12"
+              - text: "11"
+        - link "Learn more about the Home app" [ref=e435] [cursor=pointer]:
+          - /url: /home-app/
+      - generic [ref=e438]:
+        - generic [ref=e442]:
+          - heading "See it all at a glance." [level=3] [ref=e443]
+          - paragraph [ref=e444]: The Home Modular face gives you a clear and concise look at your home accessories, while the Home Camera face lets you stream up to nine videos at the same time. And you can manage it all with just your voice or a tap.
+        - generic [ref=e448]:
+          - heading "Enjoy peace of mind." [level=3] [ref=e449]
+          - paragraph [ref=e450]: HomeView can detect the sounds of the smoke and carbon monoxide detectors in your home and alert you on your iPhone, iPad, or Apple Watch.
+        - generic [ref=e454]:
+          - heading "Stay caught up." [level=3] [ref=e455]
+          - paragraph [ref=e456]: The Home app uses Apple Intelligence to group related notifications together, such as when a family member arrives home, unlocks the door, and disables the alarm. And with descriptions of video footage, you can use HomeView to catch up on key activity in and around the house.
+    - generic [ref=e457]:
+      - heading "Apple Home Collection" [level=2] [ref=e459]
+      - generic [ref=e462]:
+        - paragraph [ref=e465]:
+          - generic [ref=e466]: Created for a better smart home experience.
+        - img "Apple Home Collection smart home accessories" [ref=e470]
+        - generic [ref=e472]:
+          - paragraph [ref=e474]: Designed in collaboration with Apple and select brands, Apple Home Collection accessories — including smart cameras, thermostats, and a door lock — are simple to set up, easy to use, and private with data that’s encrypted end-to-end in Apple Home. And they work seamlessly with your Apple devices.
+          - generic [ref=e475]: Coming later
+          - link "Shop the Apple Home Collection" [ref=e478] [cursor=pointer]:
+            - /url: /us/shop/goto/home_accessories/home_collection
+    - generic [ref=e483]:
+      - generic [ref=e485]:
+        - img "Animation of Apple privacy logo with a lock icon, black color, showing lock mechanism turning from open to locked position" [ref=e490]
+        - generic [ref=e493]:
+          - heading "Your data is private property." [level=2] [ref=e494]
+          - paragraph [ref=e497]: Apple HomeView comes with privacy protections built in at every step. Since multiple people can use HomeView, it’s designed to keep everyone’s personal content separate.
+      - generic [ref=e499]:
+        - generic [ref=e503]:
+          - heading "Multiple users." [level=3] [ref=e504]
+          - paragraph [ref=e505]:
+            - text: HomeView can recognize up to six people and seamlessly switch between them. It syncs with each user’s iPhone or iPad and is designed to show their content only when they’re using HomeView.
+            - superscript [ref=e506]:
+              - link "Footnote 12" [ref=e507] [cursor=pointer]:
+                - /url: "#footnote-13"
+                - text: "12"
+        - generic [ref=e511]:
+          - heading "Secure Exclaves." [level=3] [ref=e512]
+          - paragraph [ref=e513]: The A18 chip inside HomeView contains Secure Exclaves that process the camera and microphone feeds in a secure compartment that cannot be accessed by the operating system or by Apple. This enables HomeView to recognize the face and voice of each user without exposing the audio and visual data used for recognition to the operating system.
+        - generic [ref=e517]:
+          - heading "Personal content." [level=3] [ref=e518]
+          - paragraph [ref=e519]: Users can access their personal content on HomeView when their paired iPhone or iPad is connected to the same Wi-Fi network and has been recently unlocked, and HomeView recognizes the person by face.
+    - generic [ref=e520]:
+      - heading "Explore more Apple Home products." [level=2] [ref=e523]
+      - generic [ref=e524]:
+        - list "Explore more Home products" [ref=e527]:
+          - listitem [ref=e528]:
+            - generic [ref=e529]:
+              - generic:
+                - generic:
+                  - heading "Apple TV 4K" [level=3]
+                  - generic:
+                    - paragraph: Stunning picture.Stunningly simple.
+                - figure:
+                  - generic:
+                    - img "Apple TV 4K, black color, top exterior, shown with Siri Remote, silver color"
+              - link "Learn more about Apple TV 4K" [ref=e530] [cursor=pointer]:
+                - /url: /apple-tv-4k/
+          - listitem [ref=e535]:
+            - generic [ref=e536]:
+              - generic:
+                - generic:
+                  - heading "HomePod mini 2" [level=3]
+                  - generic:
+                    - paragraph: Sound in living color.
+                - figure:
+                  - generic:
+                    - img "HomePod mini 2 speakers, mesh fabric, touch surface on top, available colors, white, blue, green, pink, midnight"
+              - link "Learn more about HomePod mini 2" [ref=e537] [cursor=pointer]:
+                - /url: /homepod-mini/
+          - listitem [ref=e542]:
+            - generic [ref=e543]:
+              - generic:
+                - generic:
+                  - heading "HomePod" [level=3]
+                  - generic:
+                    - paragraph: Immersive, high-fidelity audio. Profound sound.
+                - figure:
+                  - generic:
+                    - img "Two HomePod speakers, positioned side by side, cylindrical, rounded edges, glowing touch surface on top, white color and midnight color"
+              - link "Learn more about HomePod" [ref=e544] [cursor=pointer]:
+                - /url: /homepod-2nd-generation/
+        - list [ref=e550]:
+          - listitem [ref=e551]:
+            - button "Previous Home products" [disabled]
+          - listitem [ref=e552]:
+            - button "Next Home products" [ref=e553] [cursor=pointer]
+    - generic [ref=e556]:
+      - generic [ref=e558]:
+        - heading "Why Apple is the best place to shop Apple Home." [level=2] [ref=e559]
+        - list [ref=e561]:
+          - listitem [ref=e562]:
+            - link "Shop Apple Home" [ref=e563] [cursor=pointer]:
+              - /url: /us/shop/goto/buy_home
+      - generic [ref=e565]:
+        - list "Why Apple is the best place to shop Apple Home." [ref=e568]:
+          - listitem [ref=e569]:
+            - generic [ref=e570]:
+              - generic:
+                - generic:
+                  - heading "Guided Shopping" [level=3]
+                  - generic:
+                    - paragraph: Shop live with a Specialist.
+                    - paragraph: Let us help you find what you need and answer all of your questions, one on one, at an Apple Store or online.
+                - figure:
+                  - generic:
+                    - img "An Apple Store Specialist smiling, wearing a blue Apple shirt"
+              - button "Read more about Guided Shopping" [ref=e571] [cursor=pointer]
+          - listitem [ref=e576]:
+            - generic [ref=e577]:
+              - generic:
+                - generic:
+                  - heading "Apple Card" [level=3]
+                  - generic:
+                    - paragraph: Get 3% Daily Cash back at Apple.
+                    - paragraph:
+                      - text: Apple Card gives you unlimited 3% Daily Cash back on everything you buy at Apple.
+                      - link "Footnote * symbol" [ref=e578] [cursor=pointer]:
+                        - /url: "#footnote-1"
+                        - text: "*"
+                - figure:
+                  - generic:
+                    - img "Apple Card, titanium color, shown at an angle with the name Marisa Robertson"
+              - button "Learn more about Apple Card" [ref=e579] [cursor=pointer]
+          - listitem [ref=e584]:
+            - generic [ref=e585]:
+              - generic:
+                - generic:
+                  - heading "Personal Setup" [level=3]
+                  - generic:
+                    - paragraph: Get your new Apple HomeView set up with help from a Specialist.
+                    - paragraph: From getting started to the latest features, get tips online in a free one-to-one session.
+                - figure:
+                  - generic:
+                    - img "Blue line-art illustration of Apple HomeView, with icons representing smart home, privacy, music, FaceTime, and cloud storage features"
+              - button "Learn more about Personal Setup" [ref=e586] [cursor=pointer]
+          - listitem [ref=e591]:
+            - generic [ref=e592]:
+              - generic:
+                - generic:
+                  - heading "Installation" [level=3]
+                  - generic:
+                    - paragraph: Need installation support?
+                    - paragraph
+                - figure:
+                  - generic:
+                    - img "Apple HomeView display, screen shows Home app dashboard with thermostat set to 68 degrees, analog clock, Good Night scene, intercom, door lock, and lights controls"
+              - button "Learn more about installation" [ref=e593] [cursor=pointer]
+          - listitem [ref=e598]:
+            - generic [ref=e599]:
+              - generic:
+                - generic:
+                  - heading "Delivery and Pickup" [level=3]
+                  - generic:
+                    - paragraph: Get flexible delivery and easy pickup.
+                    - paragraph: Choose two‑hour delivery from an Apple Store, free delivery, or easy pickup options.
+                - figure:
+                  - generic:
+                    - img "An Apple Store shopping bag, white color, with gray Apple logo and gray handles"
+              - button "Learn more about delivery and pickup" [ref=e600] [cursor=pointer]
+          - listitem [ref=e605]:
+            - generic [ref=e606]:
+              - generic:
+                - generic:
+                  - heading "Apple Store App" [level=3]
+                  - generic:
+                    - paragraph: Explore a shopping experience designed around you.
+                    - paragraph: Use the Apple Store app to get a more personal way to shop.
+                - figure:
+                  - generic:
+                    - img "Apple Store app icon, blue color, with a gray Apple logo on a white shopping bag"
+              - button "Learn more about the Apple Store App" [ref=e607] [cursor=pointer]
+        - list [ref=e613]:
+          - listitem [ref=e614]:
+            - button "Previous item in why Apple gallery" [disabled]
+          - listitem [ref=e615]:
+            - button "Next item in why Apple gallery" [ref=e616] [cursor=pointer]
+    - generic [ref=e620]:
+      - heading "Questions? Answers." [level=2] [ref=e622]
+      - generic [ref=e624]:
+        - button "Expand all accordion items" [ref=e626] [cursor=pointer]:
+          - text: Expand all
+          - generic [ref=e627]: accordion items
+        - list [ref=e628]:
+          - listitem [ref=e629]:
+            - heading [level=3] [ref=e630]:
+              - button "How is HomeView different from other smart displays?" [ref=e631] [cursor=pointer]
+          - listitem [ref=e636]:
+            - heading [level=3] [ref=e637]:
+              - button "What is the acoustics performance on HomeView?" [ref=e638] [cursor=pointer]
+          - listitem [ref=e643]:
+            - heading [level=3] [ref=e644]:
+              - button "Where can I buy HomeView?" [ref=e645] [cursor=pointer]
+          - listitem [ref=e650]:
+            - heading [level=3] [ref=e651]:
+              - button "Is HomeView an AI device?" [ref=e652] [cursor=pointer]
+          - listitem [ref=e657]:
+            - heading [level=3] [ref=e658]:
+              - button "Can members of my household use HomeView if they do not have an Apple Account or iPhone?" [ref=e659] [cursor=pointer]
+          - listitem [ref=e664]:
+            - heading [level=3] [ref=e665]:
+              - button "Which smart home accessories work with HomeView?" [ref=e666] [cursor=pointer]
+    - generic [ref=e673]:
+      - heading "Home" [level=2] [ref=e675]
+      - navigation "Home" [ref=e676]:
+        - generic [ref=e677]:
+          - heading "Explore Home" [level=3] [ref=e678]
+          - list "Explore Home" [ref=e679]:
+            - listitem [ref=e680]:
+              - link "Explore Home" [ref=e681] [cursor=pointer]:
+                - /url: /home/
+            - listitem [ref=e682]:
+              - link "Apple HomeView" [ref=e683] [cursor=pointer]:
+                - /url: /apple-homeview/
+            - listitem [ref=e684]:
+              - link "Apple TV 4K" [ref=e685] [cursor=pointer]:
+                - /url: /apple-tv-4k/
+            - listitem [ref=e686]:
+              - link "HomePod" [ref=e687] [cursor=pointer]:
+                - /url: /homepod-2nd-generation/
+            - listitem [ref=e688]:
+              - link "HomePod mini 2" [ref=e689] [cursor=pointer]:
+                - /url: /homepod-mini/
+        - generic [ref=e690]:
+          - heading "Shop Home" [level=3] [ref=e691]
+          - list "Shop Home" [ref=e692]:
+            - listitem [ref=e693]:
+              - link "Shop Home" [ref=e694] [cursor=pointer]:
+                - /url: /us/shop/goto/buy_home
+            - listitem [ref=e695]:
+              - link "Shop Apple Home Collection" [ref=e696] [cursor=pointer]:
+                - /url: /us/shop/goto/home_accessories/home_collection
+            - listitem [ref=e697]:
+              - link "Shop Home Accessories" [ref=e698] [cursor=pointer]:
+                - /url: /us/shop/goto/home_accessories
+            - listitem [ref=e699]:
+              - link "Personal Setup" [ref=e700] [cursor=pointer]:
+                - /url: /us/shop/goto/personal_setup
+        - generic [ref=e701]:
+          - heading "More from Home" [level=3] [ref=e702]
+          - list "More from Home" [ref=e703]:
+            - listitem [ref=e704]:
+              - link "Apple TV Support" [ref=e705] [cursor=pointer]:
+                - /url: https://support.apple.com/apple-tv?cid=gn-ols-appletv-psp-prodfly
+            - listitem [ref=e706]:
+              - link "HomePod Support" [ref=e707] [cursor=pointer]:
+                - /url: https://support.apple.com/homepod?cid=gn-ols-homepod-psp-prodfly
+            - listitem [ref=e708]:
+              - link "AppleCare for Apple TV" [ref=e709] [cursor=pointer]:
+                - /url: /applecare/?filter=tv
+            - listitem [ref=e710]:
+              - link "AppleCare for HomePod" [ref=e711] [cursor=pointer]:
+                - /url: /applecare/?filter=homepod
+            - listitem [ref=e712]:
+              - link "Apple TV app" [ref=e713] [cursor=pointer]:
+                - /url: /apple-tv-app/
+            - listitem [ref=e714]:
+              - link "Apple TV" [ref=e715] [cursor=pointer]:
+                - /url: /apple-tv/
+            - listitem [ref=e716]:
+              - link "Home app" [ref=e717] [cursor=pointer]:
+                - /url: /home-app/
+            - listitem [ref=e718]:
+              - link "Apple Music" [ref=e719] [cursor=pointer]:
+                - /url: /apple-music/
+            - listitem [ref=e720]:
+              - link "AirPlay" [ref=e721] [cursor=pointer]:
+                - /url: /airplay/
+  - contentinfo [ref=e722]:
+    - generic [ref=e723]:
+      - heading "Apple Footer" [level=2] [ref=e724]
+      - region "Footnotes" [ref=e725]:
+        - list [ref=e726]:
+          - listitem [ref=e727]:
+            - text: "* You can choose to direct Daily Cash to a Savings account or to an Apple Cash account. If you do not have either set up to receive your Daily Cash, it can be applied as statement credit upon request. Apple Card is issued and Savings accounts are provided by Goldman Sachs Bank USA, Salt Lake City Branch, Member FDIC. Daily Cash is earned on purchases after the transaction posts to your account. Actual posting times vary by merchant. Daily Cash is subject to exclusions, and additional details apply. See the"
+            - link "Apple Card Customer Agreement" [ref=e728] [cursor=pointer]:
+              - /url: https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf
+            - text: for more information.
+            - paragraph [ref=e729]: Apple Payments Services LLC, a subsidiary of Apple Inc., is a service provider of Goldman Sachs Bank USA for Apple Card and Savings accounts. Apple Cash services are provided by Green Dot Bank, Member FDIC. Apple Payments Services LLC, a subsidiary of Apple Inc., is a service provider of Green Dot Bank for Apple Cash accounts. Neither Apple Inc. nor Apple Payments Services LLC is a bank.
+        - list [ref=e730]:
+          - listitem [ref=e731]:
+            - text: Some features may not be available in all regions or languages. Some devices may not be available in all regions. Siri AI is available in beta in HomeView software version 27.2. Personal context requests require a paired Apple Intelligence–enabled iPhone or iPad running the latest software version with Siri AI turned on and set to a supported language. Certain Apple Intelligence features that rely on server-side models are subject to daily usage limits. Expanded access to such features will be available for a fee in the future. Use of these features is subject to the Apple Intelligence Terms and Conditions. Learn more at
+            - link "support.apple.com/148587" [ref=e732] [cursor=pointer]:
+              - /url: https://support.apple.com/148587
+            - text: .
+          - listitem [ref=e733]: Wired power required. USB-C cable and USB-C power adapter included.
+          - listitem [ref=e734]: The display has rounded corners. When measured diagonally, the screen is 6.98 inches. Actual viewable area is less.
+          - listitem [ref=e735]: Spatial Audio works with compatible content in supported apps. Not all content is available in Dolby Atmos.
+          - listitem [ref=e736]: Wired power required. Compatible wall mount, USB-C cable, and USB-C power adapter sold separately.
+          - listitem [ref=e737]: Power mounts sold separately.
+          - listitem [ref=e738]: Apple Music requires a subscription.
+          - listitem [ref=e739]: Apple News+ requires a subscription.
+          - listitem [ref=e740]: Subscription may be required to access some content and services. Some applications are not available in all areas.
+          - listitem [ref=e741]: Requires multiple AirPlay-compatible speakers with the latest AirPlay software.
+          - listitem [ref=e742]: Requires a HomeKit- or Matter-enabled accessory. Smart home accessory sold separately.
+          - listitem [ref=e743]: Requires a compatible iPhone or iPad running the latest software.
+        - list [ref=e744]:
+          - listitem [ref=e745]: “Choosin’ Texas” written by Ella Langley, Joybeth Taylor, Luke Dick, and Miranda Lambert.
+          - listitem [ref=e746]:
+            - text: To access and use all Apple Card features and products available only to Apple Card users, you must add Apple Card to Wallet on an iPhone or iPad that supports and has the latest version of iOS or iPadOS. Apple Card is subject to credit approval, available only for qualifying applicants in the United States, and issued by Goldman Sachs Bank USA, Salt Lake City Branch.
+            - paragraph [ref=e747]: Apple Payments Services LLC, a subsidiary of Apple Inc., is a service provider of Goldman Sachs Bank USA for Apple Card and Savings accounts. Neither Apple Inc. nor Apple Payments Services LLC is a bank.
+            - paragraph [ref=e748]: All communications from Apple and Goldman Sachs Bank USA about Apple Card (including transactional and marketing communications) and customer service support are available in English. Certain communications about Apple Card can be viewed in another language depending on your device language settings. If you reside in the U.S. Virgin Islands, American Samoa, Guam, Northern Mariana Islands, or U.S. Minor Outlying Islands, please call Goldman Sachs at 877-255-5923 with questions about Apple Card.
+      - navigation "Breadcrumbs" [ref=e749]:
+        - link "Apple" [ref=e750] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e751]: 
+        - generic [ref=e753]:
+          - list:
+            - listitem [ref=e754]:
+              - link "Home" [ref=e755] [cursor=pointer]:
+                - /url: /home/
+            - listitem [ref=e756]: Apple HomeView
+      - navigation "Apple Directory" [ref=e757]:
+        - generic [ref=e758]:
+          - generic:
+            - heading "Shop and Learn" [level=3] [ref=e759]
+            - list [ref=e761]:
+              - listitem [ref=e762]:
+                - link "Store" [ref=e763] [cursor=pointer]:
+                  - /url: /us/shop/goto/store
+              - listitem [ref=e764]:
+                - link "Mac" [ref=e765] [cursor=pointer]:
+                  - /url: /mac/
+              - listitem [ref=e766]:
+                - link "iPad" [ref=e767] [cursor=pointer]:
+                  - /url: /ipad/
+              - listitem [ref=e768]:
+                - link "iPhone" [ref=e769] [cursor=pointer]:
+                  - /url: /iphone/
+              - listitem [ref=e770]:
+                - link "Watch" [ref=e771] [cursor=pointer]:
+                  - /url: /watch/
+              - listitem [ref=e772]:
+                - link "Vision" [ref=e773] [cursor=pointer]:
+                  - /url: /apple-vision-pro/
+              - listitem [ref=e774]:
+                - link "AirPods" [ref=e775] [cursor=pointer]:
+                  - /url: /airpods/
+              - listitem [ref=e776]:
+                - link "Home" [ref=e777] [cursor=pointer]:
+                  - /url: /home/
+              - listitem [ref=e778]:
+                - link "AirTag" [ref=e779] [cursor=pointer]:
+                  - /url: /airtag/
+              - listitem [ref=e780]:
+                - link "Accessories" [ref=e781] [cursor=pointer]:
+                  - /url: /us/shop/goto/buy_accessories
+              - listitem [ref=e782]:
+                - link "Gift Cards" [ref=e783] [cursor=pointer]:
+                  - /url: /us/shop/goto/giftcards
+          - generic:
+            - heading "Apple Wallet" [level=3] [ref=e784]
+            - list [ref=e786]:
+              - listitem [ref=e787]:
+                - link "Wallet" [ref=e788] [cursor=pointer]:
+                  - /url: /wallet/
+              - listitem [ref=e789]:
+                - link "Apple Card" [ref=e790] [cursor=pointer]:
+                  - /url: /apple-card/
+              - listitem [ref=e791]:
+                - link "Apple Pay" [ref=e792] [cursor=pointer]:
+                  - /url: /apple-pay/
+              - listitem [ref=e793]:
+                - link "Apple Cash" [ref=e794] [cursor=pointer]:
+                  - /url: /apple-cash/
+        - generic [ref=e795]:
+          - generic:
+            - heading "Account" [level=3] [ref=e796]
+            - list [ref=e798]:
+              - listitem [ref=e799]:
+                - link "Manage Your Apple Account" [ref=e800] [cursor=pointer]:
+                  - /url: https://account.apple.com/
+              - listitem [ref=e801]:
+                - link "Apple Store Account" [ref=e802] [cursor=pointer]:
+                  - /url: /us/shop/goto/account
+              - listitem [ref=e803]:
+                - link "iCloud.com" [ref=e804] [cursor=pointer]:
+                  - /url: https://www.icloud.com
+          - generic:
+            - heading "Entertainment" [level=3] [ref=e805]
+            - list [ref=e807]:
+              - listitem [ref=e808]:
+                - link "Apple One" [ref=e809] [cursor=pointer]:
+                  - /url: /apple-one/
+              - listitem [ref=e810]:
+                - link "Apple TV" [ref=e811] [cursor=pointer]:
+                  - /url: /apple-tv/
+              - listitem [ref=e812]:
+                - link "Apple Music" [ref=e813] [cursor=pointer]:
+                  - /url: /apple-music/
+              - listitem [ref=e814]:
+                - link "Apple Arcade" [ref=e815] [cursor=pointer]:
+                  - /url: /apple-arcade/
+              - listitem [ref=e816]:
+                - link "Apple Fitness+" [ref=e817] [cursor=pointer]:
+                  - /url: /apple-fitness-plus/
+              - listitem [ref=e818]:
+                - link "Apple News+" [ref=e819] [cursor=pointer]:
+                  - /url: /apple-news/
+              - listitem [ref=e820]:
+                - link "Apple Podcasts" [ref=e821] [cursor=pointer]:
+                  - /url: /apple-podcasts/
+              - listitem [ref=e822]:
+                - link "Apple Books" [ref=e823] [cursor=pointer]:
+                  - /url: /apple-books/
+              - listitem [ref=e824]:
+                - link "App Store" [ref=e825] [cursor=pointer]:
+                  - /url: /app-store/
+        - generic [ref=e826]:
+          - generic:
+            - heading "Apple Store" [level=3] [ref=e827]
+            - list [ref=e829]:
+              - listitem [ref=e830]:
+                - link "Find a Store" [ref=e831] [cursor=pointer]:
+                  - /url: /retail/
+              - listitem [ref=e832]:
+                - link "Genius Bar" [ref=e833] [cursor=pointer]:
+                  - /url: /retail/geniusbar/
+              - listitem [ref=e834]:
+                - link "Today at Apple" [ref=e835] [cursor=pointer]:
+                  - /url: /today/
+              - listitem [ref=e836]:
+                - link "Group Reservations" [ref=e837] [cursor=pointer]:
+                  - /url: /today/groups/
+              - listitem [ref=e838]:
+                - link "Apple Camp" [ref=e839] [cursor=pointer]:
+                  - /url: /today/camp/
+              - listitem [ref=e840]:
+                - link "Apple Store App" [ref=e841] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/app/apple-store/id375380948
+              - listitem [ref=e842]:
+                - link "Certified Refurbished" [ref=e843] [cursor=pointer]:
+                  - /url: /us/shop/goto/special_deals
+              - listitem [ref=e844]:
+                - link "Apple Upgrade" [ref=e845] [cursor=pointer]:
+                  - /url: /us/shop/goto/apple_upgrade
+              - listitem [ref=e846]:
+                - link "Apple Trade In" [ref=e847] [cursor=pointer]:
+                  - /url: /us/shop/goto/trade_in
+              - listitem [ref=e848]:
+                - link "Financing" [ref=e849] [cursor=pointer]:
+                  - /url: /us/shop/goto/payment_plan
+              - listitem [ref=e850]:
+                - link "Carrier Deals at Apple" [ref=e851] [cursor=pointer]:
+                  - /url: /us/shop/goto/buy_iphone/carrier_offers
+              - listitem [ref=e852]:
+                - link "Order Status" [ref=e853] [cursor=pointer]:
+                  - /url: /us/shop/goto/order/list
+              - listitem [ref=e854]:
+                - link "Shopping Help" [ref=e855] [cursor=pointer]:
+                  - /url: /us/shop/goto/help
+        - generic [ref=e856]:
+          - generic:
+            - heading "For Business" [level=3] [ref=e857]
+            - list [ref=e859]:
+              - listitem [ref=e860]:
+                - link "Apple and Business" [ref=e861] [cursor=pointer]:
+                  - /url: /business/
+              - listitem [ref=e862]:
+                - link "Shop for Business" [ref=e863] [cursor=pointer]:
+                  - /url: /retail/business/
+          - generic:
+            - heading "For Education" [level=3] [ref=e864]
+            - list [ref=e866]:
+              - listitem [ref=e867]:
+                - link "Apple and Education" [ref=e868] [cursor=pointer]:
+                  - /url: /education/
+              - listitem [ref=e869]:
+                - link "Shop for K-12" [ref=e870] [cursor=pointer]:
+                  - /url: /education/k12/how-to-buy/
+              - listitem [ref=e871]:
+                - link "Shop for College" [ref=e872] [cursor=pointer]:
+                  - /url: /us/shop/goto/educationrouting
+          - generic:
+            - heading "For Healthcare" [level=3] [ref=e873]
+            - list [ref=e875]:
+              - listitem [ref=e876]:
+                - link "Apple and Healthcare" [ref=e877] [cursor=pointer]:
+                  - /url: /healthcare/
+          - generic:
+            - heading "For Government" [level=3] [ref=e878]
+            - list [ref=e880]:
+              - listitem [ref=e881]:
+                - link "Apple and Government" [ref=e882] [cursor=pointer]:
+                  - /url: /government/
+              - listitem [ref=e883]:
+                - link "Shop for Veterans and Military" [ref=e884] [cursor=pointer]:
+                  - /url: /us/shop/goto/eppstore/veteransandmilitary
+              - listitem [ref=e885]:
+                - link "Shop for State and Local Employees" [ref=e886] [cursor=pointer]:
+                  - /url: /us_epp_67909/store
+              - listitem [ref=e887]:
+                - link "Shop for Federal Employees" [ref=e888] [cursor=pointer]:
+                  - /url: /us_epp_55499/store
+        - generic [ref=e889]:
+          - generic:
+            - heading "Apple Values" [level=3] [ref=e890]
+            - list [ref=e892]:
+              - listitem [ref=e893]:
+                - link "Accessibility" [ref=e894] [cursor=pointer]:
+                  - /url: /accessibility/
+              - listitem [ref=e895]:
+                - link "Education" [ref=e896] [cursor=pointer]:
+                  - /url: /education-initiative/
+              - listitem [ref=e897]:
+                - link "Environment" [ref=e898] [cursor=pointer]:
+                  - /url: /environment/
+              - listitem [ref=e899]:
+                - link "Inclusion and Diversity" [ref=e900] [cursor=pointer]:
+                  - /url: /diversity/
+              - listitem [ref=e901]:
+                - link "Privacy" [ref=e902] [cursor=pointer]:
+                  - /url: /privacy/
+              - listitem [ref=e903]:
+                - link "Racial Equity and Justice" [ref=e904] [cursor=pointer]:
+                  - /url: /racial-equity-justice-initiative/
+              - listitem [ref=e905]:
+                - link "Supply Chain Innovation" [ref=e906] [cursor=pointer]:
+                  - /url: /supply-chain/
+          - generic:
+            - heading "About Apple" [level=3] [ref=e907]
+            - list [ref=e909]:
+              - listitem [ref=e910]:
+                - link "Newsroom" [ref=e911] [cursor=pointer]:
+                  - /url: /newsroom/
+              - listitem [ref=e912]:
+                - link "Apple Leadership" [ref=e913] [cursor=pointer]:
+                  - /url: /leadership/
+              - listitem [ref=e914]:
+                - link "Career Opportunities" [ref=e915] [cursor=pointer]:
+                  - /url: /careers/us/
+              - listitem [ref=e916]:
+                - link "Investors" [ref=e917] [cursor=pointer]:
+                  - /url: https://investor.apple.com/
+              - listitem [ref=e918]:
+                - link "Ethics & Compliance" [ref=e919] [cursor=pointer]:
+                  - /url: /compliance/
+              - listitem [ref=e920]:
+                - link "Events" [ref=e921] [cursor=pointer]:
+                  - /url: /apple-events/
+              - listitem [ref=e922]:
+                - link "Contact Apple" [ref=e923] [cursor=pointer]:
+                  - /url: /contact/
+      - generic [ref=e924]:
+        - generic [ref=e925]:
+          - text: "More ways to shop:"
+          - link "Find an Apple Store" [ref=e926] [cursor=pointer]:
+            - /url: /retail/
+          - text: or
+          - link "other retailer" [ref=e927] [cursor=pointer]:
+            - /url: https://locate.apple.com/
+          - text: near you.
+          - generic [ref=e928]:
+            - text: Or call
+            - link "1-800-MY-APPLE" [ref=e929] [cursor=pointer]:
+              - /url: tel:1-800-692-7753
+            - text: (1-800-692-7753).
+        - generic [ref=e930]:
+          - generic [ref=e931]:
+            - generic [ref=e932]: Copyright © 2026 Apple Inc. All rights reserved.
+            - list [ref=e933]:
+              - listitem [ref=e934]:
+                - link "Privacy Policy" [ref=e935] [cursor=pointer]:
+                  - /url: /legal/privacy/
+              - listitem [ref=e936]:
+                - link "Terms of Use" [ref=e937] [cursor=pointer]:
+                  - /url: /legal/internet-services/terms/site.html
+              - listitem [ref=e938]:
+                - link "Sales and Refunds" [ref=e939] [cursor=pointer]:
+                  - /url: /us/shop/goto/help/sales_refunds
+              - listitem [ref=e940]:
+                - link "Legal" [ref=e941] [cursor=pointer]:
+                  - /url: /legal/
+              - listitem [ref=e942]:
+                - link "Site Map" [ref=e943] [cursor=pointer]:
+                  - /url: /sitemap/
+          - link "United States. Choose your country or region" [ref=e945] [cursor=pointer]:
+            - /url: /choose-country-region/
+            - text: United States
+```
+
+# Test source
+
+```ts
+  1  | const {test,expect} =require ('@playwright/test');
+  2  | 
+  3  | 
+  4  | test('HI apple', async ({browser})=>{
+  5  | const context = await browser.newContext();
+  6  | const page = await context.newPage();
+  7  | await page.goto('https://www.apple.com/apple-homeview/');
+> 8  | await page.locator('.globalnav-image-regular').click();
+     |                                                ^ Error: locator.click: Error: strict mode violation: locator('.globalnav-image-regular') resolved to 32 elements:
+  9  | 
+  10 | 
+  11 | });
+```
