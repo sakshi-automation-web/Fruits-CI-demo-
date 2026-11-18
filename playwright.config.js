@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './Practice',
+  testDir: './Fruits',
 timeout: 50*1000,
 workers : 10,
 //retries :1,
