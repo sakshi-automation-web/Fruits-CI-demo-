@@ -25,7 +25,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Tests
-        run: npx playwright test Fruits/appleautomation.js --reporter=html
+        run: npx playwright test Fruits/appleautomation.js --project=chromium --reporter=html
 
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
